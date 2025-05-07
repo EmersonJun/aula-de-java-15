@@ -11,6 +11,4 @@ public interface Animal extends Comparable<Animal>{
     default String teste(){
         return "metodo padrao";
     }
-    void add(List<Animal> animal);
-    void remove(List<Animal> animal);
 }

@@ -1,26 +1,33 @@
 package controller;
 
-import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-import model.Animal;
+import model.IAnimal;
 
 public class AnimalController {
-    private List<Animal> animal;
+    private List<IAnimal> animais;
 
-    public AnimalController(List<Animal> animal) {
-        this.animal = animal;
+    public AnimalController(List<IAnimal> animais) {
+        this.animais = animais;
     }
-    public void adicionarAnimal(Animal animais){
+
+    public void adicionarAnimal(IAnimal animal){
         animais.add(animal);
     }
-    public void removerAnimal(Animal animais){
+
+    public void removerAnimal(IAnimal animal){
         animais.remove(animal);
     }
-    // public void ordenarAnimal(){
-    //     Collection.sort(animal);    
-    // }
-    public List<String> listarSons(){
-        return animal.stream().map(a -> a.emitirSom()).toList();
+
+    public void ordenarAnimal(){
+        Collections.sort(animais);
     }
+
+    public List<String> listarSons(){
+        return animais.stream()
+            .map(a -> a.emitirSom())
+            .toList();
+    }
+
 }
